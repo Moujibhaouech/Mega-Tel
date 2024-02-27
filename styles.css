@@ -45,13 +45,37 @@ nav ul li
 {
     display: inline-block;
     margin-right: 70px;
+	position: relative;
+
+}
+
+#MenuItems li a:after,
+#MenuItems li button:after{
+	content: '' ;
+	width: 100%;
+	height: 3px;
+	left:0px;
+	top: 30px;
+	bottom: 20px;
+	position: absolute;
+	background: #F16000;
+	border-radius: 5px;
+	transform-origin: right;
+	transform:scaleX(0) ;
+	transition: transform .5s;
+	
+}
+#MenuItems li a:hover::after,
+#MenuItems li button:hover::after{
+	transform-origin: left;
+	transform: scaleX(1);
 }
 nav ul li a
 {
     text-decoration: none;
     font-size: 20px;
     color:white;
-    font-family: sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 nav ul li button
 {
@@ -61,16 +85,24 @@ nav ul li button
     border: none;
     background: transparent;
     cursor: pointer;
-    font-family: sans-serif;
+	font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-nav ul li button:hover
+
+
+
+nav ul li button::after
+{
+    
+	background-color: linear-gradient(180deg, #f2b891a3 0%, #d96a166d 52%, #db460688 67%);
+	background-color: transparent;
+
+	
+}
+nav ul li :hover
 {
     color: #F16000;
 }
-nav ul li a:hover
-{
-    color: #F16000;
-}
+
 a
 {
     text-decoration: none;
@@ -79,18 +111,27 @@ a
 }
 #login-form
 {
+
     display: none;
 }
 .form-box
 {
     width:380px;
-	height:480px;
+	height:500px;
 	position:relative;
 	margin:2% auto;
 	background:rgba(0,0,0,0.3);
 	padding:10px;
     overflow: hidden;
+	border-radius: 10px 30px 10px 30px;
+	transition: transform 0.5s;
+	cursor: pointer;	
+	
 }
+.form-box:hover{
+    transform: translateY(-10px);
+}
+	
 .button-box
 {
 	width:220px;
@@ -98,17 +139,27 @@ a
 	position:relative;
 	box-shadow: 0 0 20px 9px #ff61241f;
 	border-radius: 30px;
-}
+	
+	
+	
+	}
+
 .toggle-btn
 {
-	
-	padding:10px 30px;
+	left: 9px;
+	padding:10px 31px;
 	cursor:pointer;
 	background:transparent;
 	border:0;
 	outline: none;
 	position: relative;
+	line-height: 30px;
+	color: black;
+	
 }
+
+
+
 #btn
 {
 	top: 0;
@@ -120,12 +171,23 @@ a
 	border-radius: 30px;
 	transition: .5s;
 }
+
 .input-group-login
 {
 	top: 150px;
 	position:absolute;
 	width:280px;
 	transition:.5s;
+	
+	
+}
+.input-group-login span
+{
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-size: 14px;
+	display: flexbox;
+	
+	
 }
 .input-group-register
 {
@@ -133,6 +195,14 @@ a
 	position:absolute;
 	width:280px;
 	transition:.5s;
+
+	
+}
+.input-group-register span
+{
+    position:absolute;
+	font-size: 14px;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif	;
 }
 .input-field
 {
@@ -145,6 +215,7 @@ a
 	border-bottom: 1px solid #999;
 	outline:none;
 	background: transparent;
+
 }
 .submit-btn
 {
@@ -153,14 +224,18 @@ a
 	cursor: pointer;
 	display: block;
 	margin: auto;
-	background: #F16000;
-	border: 0;
+	background-color: #f160006b;
+	
+	border:0;
 	outline: none;
 	border-radius: 30px;
+	color: rgb(50, 50, 50);
 }
 .check-box
 {
+	
 	margin: 30px 10px 34px 0;
+	
 }
 span
 {
@@ -189,6 +264,96 @@ span
 }
 img{
 	width:100px;
-	height: 100px;
+	height: 120px;
+	
 }
+
+.submit-btn:hover
+{
+	width: 85%;
+	padding: 10px 30px;
+	cursor: pointer;
+	display: block;
+	margin: auto;
+	background-color: #777;
+	color: #F16000;
+	border: 0;
+	outline: none;
+	border-radius: 30px;
+	transition: 0.3s;
+
+}
+
+.input-line {
+    display: flex;
+}
+
+.input-field {
+    flex: 1;
+    margin-right: 10px; /* Optional: Add some spacing between the input fields */
+}
+.language,
+.level {
+	margin-right: 10px; /* Add space between Language and Level inputs */
+	width: 130px;
+	margin-top: 10px;
+	color: #777;
+}
+.language input{
+	color: #777;
+}
+#languageList {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.language-entry {
+	margin-bottom: 5px;
+}
+.level{
+	color: #777;
+}
+.add-btn{
+		width: 10px;
+		height: 10px;
+		padding: 10px;
+		margin-top:25px ;
+		margin-left: 10px;
+		padding-bottom: 10px;
+		cursor: pointer;
+		background-color: #f160006b;
+		border:0;
+		outline: none;
+		border-radius: 20px;
+		color: rgb(50, 50, 50);
+	
+}
+.add-btn:hover
+{
+	width: 10px;
+	height: 10px;
+	padding: 10px;
+	margin-top:25px ;
+	margin-left: 10px;
+	padding-bottom: 10px;
+	cursor: pointer;
+	background-color: #F16000 ;
+	border: 0;
+	outline: none;
+	border-radius: 20px;
+	color: rgb(33, 32, 32);
+	transition: 0.3s;
+
+}
+.auth-key-input {
+    width: 10px; 
+    text-align: center; /* Center the text within the input */
+    margin: 0 auto; /* Center the input within the parent container */
+}
+
+
+
+
+
 
